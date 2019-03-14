@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Usine de développement</title>
+
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/start/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>	
+		<!-- <script src="js/jquery.xdomainajax.js"></script> -->	
+		
+
+		<style>			
+			.title {
+ 			   font-family: 'Lato', Calibri, Arial, sans-serif;
+    		   color: #1951a0;    			
+			}			
+		</style>
+
+	</head>
+	<body>
+	
+		<div id="welcome" style="text-align: center">
+			<span><h1 id="title" class="title" style="display: inline-block;">Usine de Développement</h1></span>
+		</div>
+		
+	 	<script>
+		
+		  $( window ).load(
+				  function fx()
+				  {
+				    var $o=$('#title');
+				        $o.html($o.text().replace(/([\S])/g,'<span>$1</span>'));
+				        $o.css('position','relative');
+				        $('span',$o).stop().css({position:'relative',
+				                                 opacity:0,
+				                                 fontSize:84,		                                 
+				                                 top:function(i){return Math.floor(Math.random()*500)*((i%2)?1:-1);},
+				                                 left:function(i){return Math.floor(Math.random()*500)*((i%2)?1:-1);}
+				                                 
+				                         }).animate({opacity:1,fontSize:40,top:0,left:0},3000,'swing',function()
+						                        {
+						                        	$('body').effect('shake',{distance:2,times:1},100);
+					                       		});
+
+				  });
+		</script>	
+	
+	</body>
+</html>

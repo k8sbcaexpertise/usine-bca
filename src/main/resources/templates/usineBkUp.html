@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<title>Usine de développement</title>
+
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/start/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="css/main.css" />
+		<script>
+			$(document).ready(function() {
+
+				
+				$("#menu").menu({ openOnHover: true, icons: { submenu: "ui-icon-circle-triangle-e" }, position: { my: "left top", at: "left top+30" } });				
+				
+				$(".ui-menu").addClass("ui-widget-header");
+				
+ 				$("#head").click(function() {$("#menu").toggle({ effect: "fold", duration: 1000, horizFirst: false, easing:"easeInOutQuad", size:1 });});
+
+				$(window).resize( function() { resizeContentFrame(); } );
+				$(document).ready( function() { resizeContentFrame(); } );
+			});
+
+			function resizeContentFrame() {
+				try {
+					var height=$(window).height();
+					$("#contentFrame").height(height);
+				} catch (err) {
+					alert('Erreur: ' + err.message);
+					window.status = err.message;
+				}
+			}
+
+			function loadIframe(iframeName, url) {
+			    var $iframe = $('#' + iframeName);
+			    if ( $iframe.length ) {
+			        $iframe.attr('src',url);   
+			        return false;
+			    }
+			    return true;
+			}
+			
+		</script>
+		<STYLE type="text/css">
+		/*	div#bandeau {
+				width:100%;
+				height:50px;
+				background-color:#00CCFF;
+				}
+			div#contenu {
+				width:100%;
+				height:400px;
+				background-color:#FFCC00;
+				background-image: url('images/siteon0.jpg');
+				}
+			div#piedpage {
+				width:100%;
+				height:100px;
+				background-color:#33FF99;
+				}*/
+		</STYLE>
+	</head>
+	<body>
+		<div id="bandeau">
+			<div class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+				<ul id="menu">
+					<li><a href="welcome.html" onclick="return loadIframe('contentFrame', this.href);">Accueil</a></li>
+					<li><a href="#">Live</a>
+						<ul>
+							<li><a href="#">Développement (local)</a>
+								<ul>
+									<li><a href="http://localhost:8280/locator-front-war" onclick="return loadIframe('contentFrame', this.href);">Locator</a></li>
+									<li><a href="http://localhost:8280/superviseur-war" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+									<li><a href="http://localhost:8280/eva-tools-front-war" onclick="return loadIframe('contentFrame', this.href);">EVA Tools</a></li>
+									<li><a href="http://localhost:8280/admin-roles-front-war" onclick="return loadIframe('contentFrame', this.href);">Sécurité</a></li>
+									<li><a href="#">DARVA 2005</a>
+										<ul>
+											<li><a href="http://localhost:8080/darva2005-test-services/spring/TestDarvaExport" onclick="return loadIframe('contentFrame', this.href);">Test Export DARVA 2005</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">Intégration Continue</a>
+								<ul>
+									<li><a href="http://eva-dev.bcaexpertise.org:8080/locator-front-war" onclick="return loadIframe('contentFrame', this.href);">Locator</a></li>
+									<li><a href="http://eva-dev.bcaexpertise.org:8080/superviseur-war" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+									<li><a href="http://eva-dev.bcaexpertise.org:8080/vei-front-war/" onclick="return loadIframe('contentFrame', this.href);">VEI</a></li>
+									<li><a href="http://eva-dev.bcaexpertise.org:8080/admin-roles-front-war" onclick="return loadIframe('contentFrame', this.href);">GRAPP</a></li>
+									<li><a href="http://eva-dev.bcaexpertise.org:8080/deploiement-front-war" onclick="return loadIframe('contentFrame', this.href);">GAD</a></li>
+									<li><a href="http://eva-dev.bcaexpertise.org:8080/nap-war/" onclick="return loadIframe('contentFrame', this.href);">NAP</a></li>									
+									<li><a href="#">DARVA 2005</a>
+										<ul>
+											<li><a href="http://eva-dev.bcaexpertise.org:8080/darva2005-test-services/spring/TestDarvaExport" onclick="return loadIframe('contentFrame', this.href);">Test Export DARVA 2005</a></li>
+										</ul>
+									</li>
+									<li><a href="#">-------------------</a></li>									
+									<li><a href="#">JBOSS socle V3</a>
+										<ul> 
+											<li><a href="#">Start server</a>
+												<ul>
+													<li><a href="http://localhost:8080/exemple/server/S00I210D/instance/JP_APPDEV_03_3/operation/START" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_03</a></li>
+													<li><a href="http://usine.bcaexpertise.org/jenkins/var/www/cgi-bin/usineSSH.pl jbossexp jbossexp S00I210D start JP_APPDEV_03_3" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_03</a></li>
+													<li><a href="http://usine.bcaexpertise.org/jenkins/var/www/cgi-bin/usineSSH.pl jbossexp jbossexp S00I210D start JP_APPDEV_04_4" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_04</a></li>													
+												</ul>
+											</li>
+											<li><a href="#">Stop server</a>
+												<ul>
+													<li><a href="http://usine.bcaexpertise.org/jenkins/var/www/cgi-bin/usineSSH.pl jbossexp jbossexp S00I210D stop JP_APPDEV_03_3" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_03</a></li>
+													<li><a href="http://usine.bcaexpertise.org/jenkins/var/www/cgi-bin/usineSSH.pl jbossexp jbossexp S00I210D stop JP_APPDEV_04_4" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_04</a></li>													
+												</ul>
+											</li>
+											
+											<li><a href="#">Status server</a>
+												<ul>
+													<li><a href="http://usine.bcaexpertise.org/jenkins/var/www/cgi-bin/usineSSH.pl jbossexp jbossexp S00I210D status JP_APPDEV_03_3" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_03</a></li>
+													<li><a href="http://usine.bcaexpertise.org/jenkins/var/www/cgi-bin/usineSSH.pl jbossexp jbossexp S00I210D status JP_APPDEV_04_4" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_04</a></li>													
+												</ul>
+											</li>
+											<li><a href="#">Logs</a>
+												<ul>
+													<li><a href="http://s00i13i/JP_APPDEV_03/" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_03</a></li>
+													<li><a href="http://s00i13i/JP_APPDEV_04/" onclick="return loadIframe('contentFrame', this.href);">JP_APPDEV_04</a></li>													
+												</ul>
+											</li>
+										</ul>										
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">Intégration</a>
+								<ul>
+									<li><a href="#">EVA</a>
+										<ul>
+											<li><a href="http://eva-int.bcaexpertise.org:8080/superviseur-war" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+											<li><a href="http://172.16.250.128:8080/eva-tools-front-war" onclick="return loadIframe('contentFrame', this.href);">EVA Tools</a></li>
+											<li><a href="http://s00i192i.bcaexpertise.org/eva-android-front-war/" onclick="return loadIframe('contentFrame', this.href);">EVA Android EAD</a></li>
+										</ul>
+									</li>
+									<li><a href="http://eva-int.bcaexpertise.org:8080/locator-front-war" onclick="return loadIframe('contentFrame', this.href);">Locator</a></li>
+									<li><a href="http://eva-int.bcaexpertise.org:8080/admin-roles-front-war" onclick="return loadIframe('contentFrame', this.href);">GRAPP</a></li>
+									<li><a href="http://eva-int.bcaexpertise.org:8080/deploiement-front-war" onclick="return loadIframe('contentFrame', this.href);">GAD</a></li>
+									<li><a href="http://eva-int.bcaexpertise.org:8080/nap-war/" onclick="return loadIframe('contentFrame', this.href);">NAP</a></li>
+									<li><a href="http://eva-int.bcaexpertise.org:8080/vei-front-war/" onclick="return loadIframe('contentFrame', this.href);">VEI</a></li>
+									<li><a href="#">-------------------</a></li>
+									<li><a href="#">JBOSS socle V3</a>
+										<ul>
+											<li><a href="http://S00I13I/JP_INT_LAPP" onclick="return loadIframe('contentFrame', this.href);">Applications Déployées</a></li>
+											<li><a href="#" onclick="return loadIframe('contentFrame', this.href);">Logs</a>											
+												<ul>
+													<li><a href="http://s00i13i/JP_APPINT_07/" onclick="return loadIframe('contentFrame', this.href);">JP_APPINT_07</a></li>
+													<li><a href="http://s00i13i/JP_APPINT_08/" onclick="return loadIframe('contentFrame', this.href);">JP_APPINT_08</a></li>
+												</ul>
+											</li>											
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">Validation</a>
+								<ul>
+									<li><a href="http://eva-val.bcaexpertise.org:8080/superviseur-war/" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+									<li><a href="http://172.16.250.129:8280/eva-tools-front-war" onclick="return loadIframe('contentFrame', this.href);">EVA Tools</a></li>
+									<li><a href="http://eva-val.bcaexpertise.org:8080/vei-front-war/" onclick="return loadIframe('contentFrame', this.href);">VEI</a></li>
+									<li><a href="http://gad-val.bcaexpertise.org:8080/admin-roles-front-war/" onclick="return loadIframe('contentFrame', this.href);">GRAPP</a></li>
+									<li><a href="http://gad-val.bcaexpertise.org:8080/deploiement-front-war/" onclick="return loadIframe('contentFrame', this.href);">GAD</a></li>
+									<li><a href="#">-------------------</a></li>
+									<li><a href="#">JBOSS socle V3</a>
+										<ul>
+											<li><a href="http://S00I13V/JP_VAL_LAPP" onclick="return loadIframe('contentFrame', this.href);">Applications Déployées</a></li>
+											<li><a href="#" onclick="return loadIframe('contentFrame', this.href);">Logs</a>
+												<ul>
+													<li><a href="http://s00i13v/JP_APPVAL_01/" onclick="return loadIframe('contentFrame', this.href);">JP_APPVAL_01</a></li>
+													<li><a href="http://s00i13v/JP_APPVAL_02/" onclick="return loadIframe('contentFrame', this.href);">JP_APPVAL_02</a></li>
+												</ul>
+											</li>												
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">Recette</a>
+								<ul>
+									<li><a href="#">JBOSS socle V3</a>
+										<ul>
+											<li><a href="http://S00I13V/JP_REC_LAPP" onclick="return loadIframe('contentFrame', this.href);">Applications Déployées</a></li>
+											<li><a href="#" onclick="return loadIframe('contentFrame', this.href);">Logs</a>
+												<ul>
+													<li><a href="http://s00i13r/JP_APPREC_01/" onclick="return loadIframe('contentFrame', this.href);">JP_APPREC_01</a></li>
+													<li><a href="http://s00i13r/JP_APPREC_02/" onclick="return loadIframe('contentFrame', this.href);">JP_APPREC_02</a></li>
+												</ul>
+											</li>																							
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">Production</a>
+								<ul>
+									<li><a href="http://eva.bcaexpertise.org:8080/superviseur-war/" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+									<li><a href="http://intranet.bcaexpertise.org/eva-tools-front-war/" onclick="return loadIframe('contentFrame', this.href);">EVA Tools</a></li>
+									<li><a href="http://eva.bcaexpertise.org:8080/vei-front-war/" onclick="return loadIframe('contentFrame', this.href);">VEI</a></li>
+									<li><a href="http://gad.bcaexpertise.org:8080/admin-roles-front-war/" onclick="return loadIframe('contentFrame', this.href);">GRAPP</a></li>
+									<li><a href="http://gad.bcaexpertise.org:8080/deploiement-front-war/" onclick="return loadIframe('contentFrame', this.href);">GAD</a></li>
+									<li><a href="#">-------------------</a></li>
+									<li><a href="#">JBOSS socle V3</a>
+										<ul>
+											<li><a href="http://S00I13/JP_PRO_LAPP" onclick="return loadIframe('contentFrame', this.href);">Applications Déployées</a></li>
+											<li><a href="#" onclick="return loadIframe('contentFrame', this.href);">Logs</a>
+												<ul>
+													<li><a href="http://s00i13/JP_APPPRO_01/" onclick="return loadIframe('contentFrame', this.href);">JP_APPPRO_01</a></li>
+													<li><a href="http://s00i13/JP_APPPRO_02/" onclick="return loadIframe('contentFrame', this.href);">JP_APPPRO_02</a></li>
+												</ul>
+											</li>											
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href="#">Documentation</a>
+						<ul>							
+							<li><a href="http://ged-dsi.bcaexpertise.org:8080/alfresco" onclick="return loadIframe('contentFrame', this.href);">GED</a></li>
+							<li><a href="http://usine.bcaexpertise.org/docs" onclick="return loadIframe('contentFrame', this.href);">Maven Sites</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Gestion de Projet</a>
+						<ul>							
+							<li><a href="http://jira.bcaexpertise.org/secure/Dashboard.jspa" onclick="return loadIframe('contentFrame', this.href);">Jira</a></li>
+							<li><a href="http://sonar:9000/" onclick="return loadIframe('contentFrame', this.href);">Sonar</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Construction</a>
+						<ul>
+							<li><a href="http://usine.bcaexpertise.org/jenkins" onclick="return loadIframe('contentFrame', this.href);">Jenkins(old)</a></li>
+							<li><a href="http://jenkins:8080/" onclick="return loadIframe('contentFrame', this.href);">Jenkins(new)</a></li>
+							<li><a href="http://usine.bcaexpertise.org/nexus" onclick="return loadIframe('contentFrame', this.href);">Nexus</a></li>
+							<li><a href="http://usine.bcaexpertise.org/archiva" onclick="return loadIframe('contentFrame', this.href);">Archiva</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<div id="contenu">
+			<iframe src="welcome.html" name="contentFrame" id="contentFrame" style="border: none; width: 100%; height: 50%"></iframe>
+		</div>
+		
+		<div id ="piedpage">						
+			<form th:action="@{/reboot}" th:object="${serverParameters}" method="post">
+				<input type="text" th:field="*{serverName}"/>
+				<input type="text" th:field="*{instanceName}"/>
+				<input type="text" th:field="*{operation}"/>
+				<input type="submit" value ="submit"/>
+				<input type="reset" value="Reset" />
+			</form>
+			
+		</div>
+		
+	</body>
+</html>

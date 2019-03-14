@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>		
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<title>Usine de développement</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />		
+	</head>
+	<body>
+		
+	<div class="main">			
+			<nav id="cbp-hrmenu" class="cbp-hrmenu">							
+				<ul id="menu">								
+					<li id="logo"><img alt="BCA" src="images/logo_bca.png" class="logo"  width="85%"/></li>					
+					<li> 
+						<a href="#">Application</a>								
+						<div class="cbp-hrsub">
+							<div class="cbp-hrsub-inner row">
+								<div class="title_container col-xs-10 col-sm-4 col-md-3 col-lg-2 col-lg-offset-1">
+									<h4>IC (Dev)</h4>									
+									<ul>																																			
+										<li><a href="#" class="nounderline">NAP</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://jbossd1-srv:8380/nap-back-war/api/v1/status');">Status</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://jbossd1-srv:8380/nap-back-war/api/v1/versions');">Versions</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://jbossd1-srv:8380/nap-back-war/api/v1/importStock/getEtatStock');">Stock</a></li>
+										<br />
+										<li><a href="#" class="nounderline">AOT</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://jbossd1-srv:8380/pilotage-aot-back-ws/api/v1/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://jbossd1-srv:8380/pilotage-aot-back-ws/api/v1/versions');">Versions</a></li>
+										<br />													
+										<li><a href="http://jbossd1-srv:8380/qualifieur/analyse/gestionAnalyse/" onclick="return loadIframe('contentFrame', this.href);">Qualifieur</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://jbossd1-srv:8380/qualifieur/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://jbossd1-srv:8380/qualifieur/versions');">Versions</a></li>
+										<br />																																																																																											
+									</ul>
+								</div>
+																		
+								<div class="title_container col-xs-10 col-sm-4 col-md-3 col-lg-2">								
+									<h4>Intégration</h4>								
+									<ul>	
+										<li><a href="#" class="nounderline">NAP</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3i/nap-back-war/api/v1/status');">Status</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3i/nap-back-war/api/v1/versions');">Versions</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3i/nap-back-war/api/v1/importStock/getEtatStock');">Stock</a></li>
+										<br />
+										<li><a href="#" class="nounderline">AOT</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3i/pilotage-aot-back-ws/api/v1/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3i/pilotage-aot-back-ws/api/v1/versions');">Versions</a></li>
+										<br />													
+										<li><a href="http://frontals3i/qualifieur/analyse/gestionAnalyse/" onclick="return loadIframe('contentFrame', this.href);">Qualifieur</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3i/qualifieur/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3i/qualifieur/versions');">Versions</a></li>
+										<br />																															
+										<li><a href="http://eva-int.bcaexpertise.org:8080/superviseur-war" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+										<br />																																			
+										<li><a href="#" onclick="window.open('http://eva-int.bcaexpertise.org:8080/deploiement-front-war'); return false;" >GAD</a></li>
+										<br />
+									</ul>
+								</div>
+
+								
+								<div class="title_container col-xs-10 col-sm-4 col-md-3 col-lg-2">
+									<h4>Validation</h4>
+									<ul>
+										<li><a href="#" class="nounderline">NAP</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3v/nap-back-war/api/v1/status');">Status</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3v/nap-back-war/api/v1/versions');">Versions</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3v/nap-back-war/api/v1/importStock/getEtatStock');">Stock</a></li>
+										<br />
+										<li><a href="#" class="nounderline">AOT</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3v/pilotage-aot-back-ws/api/v1/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3v/pilotage-aot-back-ws/api/v1/versions');">Versions</a></li>
+										<br />													
+										<li><a href="http://frontals3v/qualifieur/analyse/gestionAnalyse/" onclick="return loadIframe('contentFrame', this.href);">Qualifieur</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3v/qualifieur/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3v/qualifieur/versions');">Versions</a></li>
+										<br />
+										<li><a href="http://eva-val.bcaexpertise.org:8080/superviseur-war/" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+										<br />																																																									
+										<li><a href="#" onclick="window.open('http://gad-val.bcaexpertise.org:8080/deploiement-front-war'); return false;">GAD</a></li>
+										<br />
+									</ul>
+								</div>
+
+								<div class="title_container col-xs-10 col-sm-4 col-md-3 col-lg-2">
+									<h4>Recette</h4>
+									<ul>
+										<li><a href="#" class="nounderline">NAP</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3r/nap-back-war/api/v1/status');">Status</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3r/nap-back-war/api/v1/versions');">Versions</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3r/nap-back-war/api/v1/importStock/getEtatStock');">Stock</a></li>
+										<br />
+										<li><a href="#" class="nounderline">AOT</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3r/pilotage-aot-back-ws/api/v1/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3r/pilotage-aot-back-ws/api/v1/versions');">Versions</a></li>
+										<br />													
+										<!-- <li><a href="#" class="nounderline">Qualifieur</a></li> -->
+										<li><a href="http://frontals3r/qualifieur/analyse/gestionAnalyse/" onclick="return loadIframe('contentFrame', this.href);">Qualifieur</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3r/qualifieur/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3r/qualifieur/versions');">Versions</a></li>
+										<br />
+										<li><a href="http://eva-rec.bcaexpertise.org:8080/superviseur-war/" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+										<br />																																																									
+										<li><a href="#" onclick="window.open('http://gad-rec.bcaexpertise.org:8080/deploiement-front-war'); return false;">GAD</a></li>
+										<br />											
+									</ul>
+								</div>
+								
+								<div class="title_container col-xs-10 col-sm-4 col-md-3 col-lg-2">
+									<h4>Production</h4>									
+									<ul>
+										<li><a href="#" class="nounderline">NAP</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3p/nap-back-war/api/v1/status');">Status</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3p/nap-back-war/api/v1/versions');">Versions</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3p/nap-back-war/api/v1/importStock/getEtatStock');">Stock</a></li>
+										
+										<br />
+										<li><a href="#" class="nounderline">AOT</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3p/pilotage-aot-back-ws/api/v1/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3p/pilotage-aot-back-ws/api/v1/versions');">Versions</a></li>
+										<br />													
+										<!-- <li><a href="#" class="nounderline">Qualifieur</a></li> -->
+										<li><a href="http://frontals3p/qualifieur/analyse/gestionAnalyse/" onclick="return loadIframe('contentFrame', this.href);">Qualifieur</a></li>
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3p/qualifieur/properties');">Properties</a></li>									
+										<li><a href="#" class="textindent" onclick="return get_nap_status('http://frontals3p/qualifieur/versions');">Versions</a></li>
+										<br />																				
+										<li><a href="http://eva.bcaexpertise.org:8080/superviseur-war/" onclick="return loadIframe('contentFrame', this.href);">Superviseur</a></li>
+										<br />
+										<li><a href="#" onclick="window.open('http://gad.bcaexpertise.org:8080/deploiement-front-war'); return false;">GAD</a></li>																																							
+										<br />											
+									</ul>
+								</div>
+								
+							</div><!-- /cbp-hrsub-inner -->
+							
+						</div><!-- /cbp-hrsub -->
+					</li>
+					<!-- FIN APPLICATION -->
+					<!-- JBOSS -->
+					<li>
+						<a id="serveur" href="#">Serveur</a>
+						<div class="cbp-hrsub">
+							<div class="cbp-hrsub-inner row"> 								
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2 col-lg-offset-1">
+									<h4>IC (Dev)</h4>
+									<ul>
+										<li><a href="#" class="nounderline">jboss V3</a></li>
+										<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', '/status.jsp?env=dev');">gestion</a></li>
+										<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', 'http://jbossd1-srv:8380');">console jbossd1</a></li>
+										<br />																								
+									</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Intégration</H4>
+										<ul>
+											<li><a href="#" class="nounderline">jboss V3</a></li>
+											<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', '/status.jsp?env=int');">gestion</a></li>
+											<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', 'http://jbossi1-srv:8780');">console jbossi1</a></li>
+											<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', 'http://jbossi2-srv:8880');">console jbossi2</a></li>
+											<br />
+											<li><a href="#" class="nounderline">apache</a></li>
+											<li><a href="#" class="textindent" onclick="return get_nap_status('http://s00i13i:81/modcluster');">mod_cluster</a></li>
+											<br />																																
+										</ul>
+								</div>							
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">									
+									<H4>Validation</H4>
+										<ul>
+											<li><a href="#" class="nounderline">jboss V3</a></li>
+											<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', '/status.jsp?env=val');">gestion</a></li>
+											<br />
+											<li><a href="#" class="nounderline">apache</a></li>
+											<li><a href="#" class="textindent" onclick="return get_nap_status('http://s00i13v:81/modcluster');">mod_cluster</a></li>
+											<br />
+
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Recette</H4>
+										<ul>
+											<li><a href="#" class="nounderline">jboss V3</a></li>
+											<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', '/status.jsp?env=rec');">gestion</a></li>
+											<br />
+											<li><a href="#" class="nounderline">apache</a></li>
+											<li><a href="#" class="textindent" onclick="return get_nap_status('http://s00i13r:81/modcluster');">mod_cluster</a></li>
+											<br />
+											
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">									
+									<H4>Production</H4>
+										<ul>
+											<li><a href="#" class="nounderline">jboss V3</a></li>
+											<li><a href="#" class="textindent" onclick="return loadIframe('contentFrame', '/status.jsp?env=pro');">gestion</a></li>
+											<br />
+											<li><a href="#" class="nounderline">apache</a></li>
+											<li><a href="#" class="textindent" onclick="return get_nap_status('http://s00i13:81/modcluster');">mod_cluster</a></li>
+											<br />
+																						
+										</ul>
+								</div>
+							</div><!-- /cbp-hrsub-inner -->
+							
+						</div><!-- /cbp-hrsub -->
+					</li>
+					<!-- FIN JBOSS -->
+					<li>
+						<a id="documentation" href="#">Documentation</a>
+						<div class="cbp-hrsub">
+							<div class="cbp-hrsub-inner row"> 
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2 col-lg-offset-1">
+									<H4>GED</H4>
+										<ul>							
+											<li><a href="#" onclick="window.open('http://ged-dsi.bcaexpertise.org:8080/alfresco'); return false;">Alfresco</a></li>											
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Projets</H4>
+										<ul>																	
+											<li><a href="#" onclick="return loadIframe('contentFrame', 'http://usine.bcaexpertise.org/docs');">Maven Sites</a></li>
+										</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a id="gestiondeprojet" href="#">Outils</a>
+						<div class="cbp-hrsub">
+							<div class="cbp-hrsub-inner row"> 
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2 col-lg-offset-1">
+									<H4>Gestion</H4>
+										<ul>							
+											<li><a href="#" onclick="return loadIframe('contentFrame', 'http://exploitation.bcaexpertise.org/shares');">Gestionnaire de partages</a></li>											
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Informations</H4>
+										<ul>																	
+											<li><a href="#" onclick="return loadIframe('contentFrame', 'http://exploitation.bcaexpertise.org/whois/refresh.aspx');">Annuaire Technique</a></li>
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Assistance</H4>
+										<ul>																	
+											<li><a href="#" onclick="window.open('http://bca-assistance/HEAT'); return false;">HEAT</a></li>
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Suivi Production</H4>
+										<ul>																	
+											<li><a href="#" onclick="return loadIframe('contentFrame','http://centreon/centreon/main.php'); return false;">CENTREON</a></li>
+										</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a id="gestiondeprojet" href="#">Gestion de Projet</a>
+						<div class="cbp-hrsub">
+							<div class="cbp-hrsub-inner row"> 
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2 col-lg-offset-1">
+									<H4>Demande/Issue</H4>
+										<ul>																
+											<li><a href="#" onclick="window.open('http://jira.bcaexpertise.org/secure/Dashboard.jspa'); return false;">Jira</a></li>
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Reporting</H4>
+										<ul>																	
+											<li><a href="#" onclick="window.open('http://sonar.bcaexpertise.org:9000'); return false;">Sonar</a></li>
+										</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a id="construction" href="#">Construction</a>						
+						<div class="cbp-hrsub">
+							<div class="cbp-hrsub-inner row"> 
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2 col-lg-offset-1">
+									<H4>Build</H4>
+										<ul>
+											<li><a href="#" onclick="return loadIframe('contentFrame', 'http://usine.bcaexpertise.org:8080/jenkins');">Jenkins(old)</a></li>
+											<li><a href="#" onclick="window.open('http://jenkins.bcaexpertise.org:8080'); return false;">Jenkins(new)</a></li>
+																																					
+										</ul>
+								</div>
+								<div class="col-xs-10 col-sm-4 col-md-4 col-lg-2">
+									<H4>Repository</H4>
+										<ul>																			
+											<li><a href="#" onclick="window.open('http://usine.bcaexpertise.org:8081/nexus'); return false;">Nexus(old)</a></li>											
+											<li><a href="#" onclick="window.open('http://nexus:8081/nexus'); return false;">Nexus(new)</a></li>																					
+										</ul>
+								</div>
+							</div>
+						</div>						
+					</li>							
+				</ul>				
+			</nav>
+				
+		</div>
+		
+		<div id="menu" style="margin-left:50px;">					
+			<span id="result"></span>			
+		</div>
+				
+		<div id="contenu">
+			<iframe src="welcome.html" name="contentFrame" id="contentFrame" width="100%"></iframe>
+		</div>
+		
+		<!-- <div id="contenuDIV">			
+		</div>  -->
+		
+		<div id="version" style="display: block;text-align: right;font-size: 75%;"/>  
+			
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- <script src="js/bootstrap.min.js"></script> -->	
+		<script src="js/modernizr.custom.js"></script>		
+		<script src="js/cbpHorizontalMenu.js"></script>
+		<!-- <script src="js/jquery.xdomainajax.js"></script> -->	
+		<!-- <script src="js/cbpHorizontalMenu.min.js"></script> --> 
+		<script src="js/app.js"></script>
+
+		<script>
+			$(function() {
+				cbpHorizontalMenu.init();
+			});			
+		</script>
+	</body>
+</html>
