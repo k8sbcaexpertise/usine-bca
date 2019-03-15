@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .project
 .classpath
 .idea
@@ -7,3 +8,13 @@
 target
 work
 *.tgz
+=======
+/target/
+.settings
+.classpath
+.project
+.idea
+*.iws
+*.iml
+*.ipr
+>>>>>>> Stashed changes
